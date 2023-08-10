@@ -65,7 +65,10 @@ func postmethod1(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Expires", "0")
 
 	cookie, err := r.Cookie("logincookie")
-	if err != nil || cookie.Value != "" {
+	if err != nil {
+		fmt.Println(err)
+
+	} else if cookie.Value != "" {
 		http.Redirect(w, r, "/home", http.StatusSeeOther)
 		return
 	}
@@ -136,7 +139,10 @@ func logoutfunc(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/login", http.StatusSeeOther)
 
 	cookie, err := r.Cookie("logincookie")
-	if err != nil || cookie.Value == "" {
+	if err != nil {
+		fmt.Println(err)
+
+	} else if cookie.Value == "" {
 		http.Redirect(w, r, "/login", http.StatusSeeOther)
 		return
 	}
