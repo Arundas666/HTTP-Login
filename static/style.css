@@ -21,7 +21,10 @@
 }
 .heading1{
     margin: auto;
-    color: aqua;
+    color: rgb(30, 11, 241);
     
+}
+.login-p{
+    color: rgb(196, 47, 1);
 }
 
